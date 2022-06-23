@@ -5,7 +5,7 @@ import RecentesComp from "@/components/RecentesComp.vue";
 </script>
 <template>
   <main class="pgadmin">
-    <h1>Pagina de <strong>administração</strong></h1>
+    <h1><strong>Administração</strong> geral</h1>
     <RecentesComp />
     <div class="linha_CE">
       <ComprasComp />

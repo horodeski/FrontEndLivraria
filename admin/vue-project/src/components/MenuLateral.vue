@@ -6,12 +6,18 @@ export default {};
     <nav>
       <ul>
         <li>
-          <RouterLink to="/inicio" class="link_logo">
+          <RouterLink to="/" class="link_logo">
             <i id="logo" class="bx bx-book-heart"></i>
             <span class="livraria_link">Livraria do dudu</span>
           </RouterLink>
         </li>
         <div>
+          <RouterLink to="/admgeral" class="admgeral">
+            <li>
+              <i class="bx bx-signal-5"></i>
+              <span class="admger_link">Administração geral</span>
+            </li>
+          </RouterLink>
           <RouterLink to="/livros" class="livros">
             <li>
               <i class="bx bxs-food-menu"></i>

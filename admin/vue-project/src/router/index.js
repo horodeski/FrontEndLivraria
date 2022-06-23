@@ -29,8 +29,8 @@ const router = createRouter({
       component: EditorasView,
     },
     {
-      path: "/inicio",
-      name: "inicio",
+      path: "/admgeral",
+      name: "admgeral",
       component: MainView,
     },
   ],
