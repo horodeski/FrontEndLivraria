@@ -1,0 +1,188 @@
+body {
+  height: 100vh;
+}
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Mukta', sans-serif;
+}
+nav{
+  margin-right: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  background: #fff;
+  width: 90px;
+  overflow: hidden;
+  transition: width 0.2s linear;
+  box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.1);
+}
+.pgadmin{
+  padding-left: 100px;
+}
+.livro {
+  display: inline;
+  width: 210px;
+  height: 163px;
+  border: 1px solid #40AB85;
+  padding: 15px;
+  margin: 12px;
+}
+strong{
+  text-decoration: underline solid #40AB85;
+}
+.compras, .estoque{
+  border: 1px solid #40AB85;
+  width: 50%;
+  height: 50vh;
+  margin: 15px;
+  padding: 15px
+}
+.linha_CE{
+  display: flex;
+}
+.linha_livros {
+  display: flex;
+  justify-content: center;
+}
+.link_logo{
+  text-align: center;
+  display: flex;
+  transition: all 0.5s ease;
+  margin: 10px 0 0 10px;
+  color: #40AB85;
+}
+.link_logo i {
+  width: 45px;
+  height: 45px;
+}
+.link_logo span {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+li{
+  color: rgb(85, 83, 83);
+  font-size: 20px;
+  display: table;
+  width: 300px;
+  padding: 10px;
+}
+.livraria_link{
+  font-size: 45px;
+}
+li i {
+  display: flex;
+  align-items: center;
+}
+i{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 28px;
+  text-align: center;
+}
+#logo{
+  font-size: 35px;
+}
+span{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+li:hover{
+  background: #eee;
+  color: #40AB85;
+}
+nav:hover{
+  width: 280px;
+  transition: all 0.5s ease;
+}
+.admin{
+  position: absolute;
+  bottom: 0;
+}
+main{
+  margin: 25px;
+}
+.info_nome {
+  float: left;
+}
+.info_valor {
+  float: right;
+}
+.info_exvalor {
+  float: right;
+  padding-right: 10px;
+  color: rgba(88, 88, 88, 0.616);
+  text-decoration: line-through;
+}
+.title {
+  color: #40AB85;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.form-input {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.form-input input {
+  width: 60%;
+  height: 40px;
+  border: 2px solid rgb(147, 147, 147);
+  border-radius: 10px;
+  padding: 0 10px;
+}
+.form-input button {
+  margin-left: 1px;
+  width: 20%;
+  height: 40px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  background-color:#40AB85;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  cursor: pointer;
+}
+.form-input button:hover {
+  background-color: #ffffff;
+  border: 3px solid #40AB85;
+  color: #40AB85;
+  transition: all 0.5s ease;
+}
+.form-input button::before{
+  background-color: #ffffff;
+  border: 1px solid #40AB85;
+  color: #40AB85;
+  transition: all 0.5s ease;
+}
+.list-times {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.list-times table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+table tr td {
+  border: 2px solid rgb(211, 211, 211);
+  padding: 10px;
+}
+td button{
+  margin-left: 10px;
+}
+td button:hover{
+  cursor: pointer;
+}
