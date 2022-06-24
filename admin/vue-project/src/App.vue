@@ -2,8 +2,8 @@
 import MenuLateral from "./components/MenuLateral.vue";
 </script>
 <template>
-  <RouterView />
   <MenuLateral />
+  <RouterView />
 </template>
 <style>
 @import "@/assets/base.css";

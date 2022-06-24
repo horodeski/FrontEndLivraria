@@ -4,6 +4,7 @@ import LivrosView from "../views/LivrosView.vue";
 import CategoriasView from "../views/CategoriasView.vue";
 import EditorasView from "../views/EditorasView.vue";
 import MainView from "../views/MainView.vue";
+import HomeComp from "../components/HomeComp.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,6 +13,11 @@ const router = createRouter({
       path: "/livros",
       name: "livros",
       component: LivrosView,
+    },
+    {
+      path: "/",
+      name: "home",
+      component: HomeComp,
     },
     {
       path: "/autores",

@@ -8,7 +8,7 @@ export default {};
         <li>
           <RouterLink to="/" class="link_logo">
             <i id="logo" class="bx bx-book-heart"></i>
-            <span class="livraria_link">Livraria do dudu</span>
+            <span class="livraria_link">Livraria do Dudu</span>
           </RouterLink>
         </li>
         <div>
