@@ -10,6 +10,9 @@ body {
   box-sizing: border-box;
   font-family: 'Mukta', sans-serif;
 }
+tr{
+  width: 70%;
+}
 nav{
   margin-right: 20px;
   position: absolute;
@@ -45,6 +48,10 @@ strong{
   font-size: 50px;
   font-weight: bold;
   padding-left: 100px;
+}
+main{
+  margin-left: 105px;
+  margin-right: 85px;
 }
 .iniciopg{
   margin-top: 25px;
@@ -120,9 +127,7 @@ nav:hover{
   position: absolute;
   bottom: 0;
 }
-main{
-  margin: 25px;
-}
+
 .info_nome {
   float: left;
 }
@@ -149,9 +154,16 @@ main{
 .form-input input {
   width: 60%;
   height: 40px;
-  border: 2px solid rgb(147, 147, 147);
-  border-radius: 10px;
+  border: none;
+  border-bottom: 2px solid rgb(147, 147, 147);
   padding: 0 10px;
+  margin: 5px;
+}
+#input_tit{
+  width: 60%;
+}
+#input_quant, #input_pre{
+  width: 13%;
 }
 .form-input button {
   margin-left: 1px;
