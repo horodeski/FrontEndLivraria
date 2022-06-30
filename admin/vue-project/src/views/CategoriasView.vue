@@ -49,7 +49,7 @@ export default {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Descrição</th>
+              <th>Categoria</th>
             </tr>
           </thead>
           <tbody>
