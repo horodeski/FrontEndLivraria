@@ -3,18 +3,33 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
-      livros: [
+      categorias: [
         {
-          id: "'123'",
-          nome: "'título'",
-          ISBN: "'123'",
-          Categoria_ID: "'123'",
-          Editora_ID: "'123'",
-          Autor_ID: "'123'",
-          quantidade: "'999'",
-          preco: "'0,00'",
+          descricao: "Administração, Negócios e Economia",
+        },
+        {
+          descricao: "Artesanato, Casa e Estilo de Vida",
+        },
+        {
+          descricao: "Biografias e Histórias Reais",
+        },
+        {
+          descricao: "Direito",
+        },
+        {
+          descricao: "Fantasia, Horror e Ficção Científica",
+        },
+        {
+          descricao: "HQs, Mangás e Graphic Novels",
+        },
+        {
+          descricao: "Romance",
+        },
+        {
+          descricao: "Policial, Suspense e Mistério",
         },
       ],
+      livros: [],
       novo_livro: "",
       novo_pre: "",
       novo_quant: "",
@@ -74,12 +89,17 @@ export default {
             v-model="novo_livro"
             placeholder="Título"
           />
-          <input
-            id="input_tit"
-            type="text"
-            v-model="novo_categoria_ID"
-            placeholder="ID da categoria"
-          />
+          <label for="categorias">Categorias</label>
+          <select name="cat" id="categorias">
+            <option
+              v-for="descricao of categorias"
+              :key="descricao.descricao"
+              for="escolha"
+              value="categoria.categoria"
+            >
+              {{ descricao }}
+            </option>
+          </select>
           <input
             id="input_tit"
             type="text"
@@ -110,7 +130,7 @@ export default {
         </div>
       </div>
       <div class="list-livros">
-        <table>
+        <table v-if="livros.length > 0">
           <thead>
             <tr>
               <th>ID</th>
@@ -141,6 +161,10 @@ export default {
             </tr>
           </tbody>
         </table>
+        <div class="senao" v-else>
+          <span class="aviso">Não existem livros cadastrados</span>
+          <i class="bx bx-error"></i>
+        </div>
       </div>
     </div>
   </main>

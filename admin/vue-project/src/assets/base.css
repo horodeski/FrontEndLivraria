@@ -23,6 +23,16 @@ nav{
   transition: width 0.2s linear;
   box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.1);
 }
+
+.bx-error {
+  font-size: 50px;
+  color: #939393;;
+}
+.aviso{
+  color: #939393;
+  margin-top: 20px;
+  font-weight: bold;
+}
 .livro {
   display: inline;
   width: 210px;

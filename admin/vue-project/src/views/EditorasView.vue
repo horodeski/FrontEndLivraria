@@ -3,13 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
-      editoras: [
-        {
-          id: "'123'",
-          nome: "'nome'",
-          site: "'http://site.com'",
-        },
-      ],
+      editoras: [],
       nova_editora: "",
     };
   },
@@ -50,7 +44,7 @@ export default {
         <button @click="salvar">Salvar</button>
       </div>
       <div class="list-livros">
-        <table>
+        <table v-if="editoras.length > 0">
           <thead>
             <tr>
               <th>ID</th>
@@ -70,6 +64,10 @@ export default {
             </tr>
           </tbody>
         </table>
+        <div class="senao" v-else>
+          <span class="aviso">Não existem editoras cadastrados</span>
+          <i class="bx bx-error"></i>
+        </div>
       </div>
     </div>
   </main>

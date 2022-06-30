@@ -5,8 +5,36 @@ export default {
     return {
       categorias: [
         {
-          id: "'123'",
-          descricao: "'descrição'",
+          id: "001",
+          descricao: "Administração, Negócios e Economia",
+        },
+        {
+          id: "002",
+          descricao: "Artesanato, Casa e Estilo de Vida",
+        },
+        {
+          id: "003",
+          descricao: "Biografias e Histórias Reais",
+        },
+        {
+          id: "004",
+          descricao: "Direito",
+        },
+        {
+          id: "005",
+          descricao: "Fantasia, Horror e Ficção Científica",
+        },
+        {
+          id: "006",
+          descricao: "HQs, Mangás e Graphic Novels",
+        },
+        {
+          id: "007",
+          descricao: "Romance",
+        },
+        {
+          id: "008",
+          descricao: "Policial, Suspense e Mistério",
         },
       ],
       nova_categoria: "",
@@ -45,7 +73,7 @@ export default {
         <button @click="salvar">Salvar</button>
       </div>
       <div class="list-livros">
-        <table>
+        <table v-if="categorias.length > 0">
           <thead>
             <tr>
               <th>ID</th>
@@ -63,6 +91,10 @@ export default {
             </tr>
           </tbody>
         </table>
+        <div class="senao" v-else>
+          <span class="aviso">Não existem categorias cadastrados</span>
+          <i class="bx bx-error"></i>
+        </div>
       </div>
     </div>
   </main>

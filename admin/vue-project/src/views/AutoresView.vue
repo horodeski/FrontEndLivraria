@@ -3,12 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
-      autores: [
-        {
-          id: "'123'",
-          autor: "'autor'",
-        },
-      ],
+      autores: [],
       novo_autor: "",
     };
   },
@@ -41,7 +36,7 @@ export default {
         <button @click="salvar">Salvar</button>
       </div>
       <div class="list-livros">
-        <table>
+        <table v-if="autores.length > 0">
           <thead>
             <tr>
               <th>ID</th>
@@ -59,6 +54,10 @@ export default {
             </tr>
           </tbody>
         </table>
+        <div class="senao" v-else>
+          <span class="aviso">Não existem autores cadastrados</span>
+          <i class="bx bx-error"></i>
+        </div>
       </div>
     </div>
   </main>
