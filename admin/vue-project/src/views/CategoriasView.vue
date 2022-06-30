@@ -3,7 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
-      categorias: [{}],
+      categorias: [
+        {
+          id: "'123'",
+          descricao: "'descrição'",
+        },
+      ],
       nova_categoria: "",
     };
   },
@@ -29,13 +34,17 @@ export default {
   <main>
     <div class="container">
       <div class="title">
-        <h2>Gerenciamento de categorias</h2>
+        <h1>Gerenciamento de categorias</h1>
       </div>
-      <div class="form-input">
-        <input type="text" v-model="nova_categoria" />
+      <div class="form">
+        <input
+          type="text"
+          v-model="nova_categoria"
+          placeholder="Categoria..."
+        />
         <button @click="salvar">Salvar</button>
       </div>
-      <div class="list-times">
+      <div class="list-livros">
         <table>
           <thead>
             <tr>

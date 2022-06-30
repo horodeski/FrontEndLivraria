@@ -3,7 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
-      autores: [{}],
+      autores: [
+        {
+          id: "'123'",
+          autor: "'autor'",
+        },
+      ],
       novo_autor: "",
     };
   },
@@ -29,13 +34,13 @@ export default {
   <main>
     <div class="container">
       <div class="title">
-        <h2>Gerenciamento de autores</h2>
+        <h1>Gerenciamento de autores</h1>
       </div>
-      <div class="form-input">
-        <input type="text" v-model="novo_autor" />
+      <div class="form">
+        <input type="text" v-model="novo_autor" placeholder="Autor..." />
         <button @click="salvar">Salvar</button>
       </div>
-      <div class="list-times">
+      <div class="list-livros">
         <table>
           <thead>
             <tr>
