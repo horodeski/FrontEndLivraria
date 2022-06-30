@@ -65,7 +65,7 @@ export default {
           </tbody>
         </table>
         <div class="senao" v-else>
-          <span class="aviso">Não existem editoras cadastrados</span>
+          <span class="aviso">Não existem editoras cadastradas</span>
           <i class="bx bx-error"></i>
         </div>
       </div>

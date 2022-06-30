@@ -34,7 +34,7 @@ export default {
       novo_pre: "",
       novo_quant: "",
       novo_autor_ID: "",
-      novo_categoria_ID: "",
+      nova_categoria: "",
       novo_editora_ID: "",
     };
   },
@@ -45,7 +45,7 @@ export default {
         this.novo_pre !== "",
         this.novo_quant !== "",
         this.novo_autor_ID !== "",
-        this.novo_categoria_ID !== "",
+        this.nova_categoria !== "",
         this.novo_editora_ID !== "")
       ) {
         const novo_id = uuidv4();
@@ -56,7 +56,7 @@ export default {
           quantidade: this.novo_quant,
           preco: this.novo_pre,
           ISBN: novo_ISBN,
-          Categoria_ID: this.novo_categoria_ID,
+          Categoria: this.nova_categoria,
           Editora_ID: this.novo_editora_ID,
           Autor_ID: this.novo_autor_ID,
         });
@@ -64,7 +64,7 @@ export default {
         this.novo_quant = "";
         this.novo_pre = "";
         this.novo_autor_ID = "";
-        this.novo_categoria_ID = "";
+        this.nova_categoria = "";
         this.novo_editora_ID = "";
       }
     },
@@ -89,15 +89,10 @@ export default {
             v-model="novo_livro"
             placeholder="Título"
           />
-          <label for="categorias">Categorias</label>
-          <select name="cat" id="categorias">
-            <option
-              v-for="descricao of categorias"
-              :key="descricao.descricao"
-              for="escolha"
-              value="categoria.categoria"
-            >
-              {{ descricao }}
+          <select name="cat" id="categorias" v-model="nova_categoria">
+            <option disabled value="">Escolha uma categoria</option>
+            <option v-for="descricao of categorias" :key="descricao.descricao">
+              {{ descricao.descricao }}
             </option>
           </select>
           <input
@@ -136,7 +131,7 @@ export default {
               <th>ID</th>
               <th>Título</th>
               <th>ISBN</th>
-              <th>Categoria_ID</th>
+              <th>Categoria</th>
               <th>Editora_ID</th>
               <th>Autor_ID</th>
               <th>Quantidade</th>
@@ -149,7 +144,7 @@ export default {
               <td>{{ livro.id }}</td>
               <td>{{ livro.nome }}</td>
               <td>{{ livro.ISBN }}</td>
-              <td>{{ livro.Categoria_ID }}</td>
+              <td>{{ livro.Categoria }}</td>
               <td>{{ livro.Editora_ID }}</td>
               <td>{{ livro.Autor_ID }}</td>
               <td>{{ livro.quantidade }}</td>
