@@ -5,34 +5,42 @@ export default {
     return {
       categorias: [
         {
+          id: "783d2265-3368-47c5-8d29-8e958295eff0",
           descricao: "Administração, Negócios e Economia",
         },
         {
+          id: "f1f48ff7-7a2f-439a-bf1d-f2252f6416f1",
           descricao: "Artesanato, Casa e Estilo de Vida",
         },
         {
+          id: "6b88323e-c2a7-45bb-8689-23cecdd4dc52",
           descricao: "Biografias e Histórias Reais",
         },
         {
+          id: "f9bac5f0-2513-4516-9b3e-9285faaa4f10",
           descricao: "Direito",
         },
         {
+          id: "0a9c9d5b-935c-44ea-a254-8b0963cb94d4",
           descricao: "Fantasia, Horror e Ficção Científica",
         },
         {
+          id: "a9d4326f-1c10-49a5-aeba-e7614650b875",
           descricao: "HQs, Mangás e Graphic Novels",
         },
         {
+          id: "79d1d7cf-fd03-47cb-b253-f3c792c38a40",
           descricao: "Romance",
         },
         {
+          id: "00be5b0b-5284-489d-b9e8-00084af4c18e",
           descricao: "Policial, Suspense e Mistério",
         },
       ],
       livros: [],
       novo_livro: "",
-      novo_pre: "",
-      novo_quant: "",
+      novo_pre: 0,
+      novo_quant: 0,
       novo_autor_ID: "",
       nova_categoria: "",
       novo_editora_ID: "",
@@ -41,12 +49,12 @@ export default {
   methods: {
     salvar() {
       if (
-        (this.novo_livro !== "",
-        this.novo_pre !== "",
-        this.novo_quant !== "",
-        this.novo_autor_ID !== "",
-        this.nova_categoria !== "",
-        this.novo_editora_ID !== "")
+        this.novo_livro !== "" &&
+        this.novo_pre > 0 &&
+        this.novo_quant > 0 &&
+        this.novo_autor_ID !== "" &&
+        this.nova_categoria !== "" &&
+        this.novo_editora_ID !== ""
       ) {
         const novo_id = uuidv4();
         const novo_ISBN = uuidv4();
@@ -66,6 +74,8 @@ export default {
         this.novo_autor_ID = "";
         this.nova_categoria = "";
         this.novo_editora_ID = "";
+      } else {
+        alert("Todos os campos são obrigatórios");
       }
     },
     excluir(livro) {
@@ -91,8 +101,8 @@ export default {
           />
           <select name="cat" id="categorias" v-model="nova_categoria">
             <option disabled value="">Escolha uma categoria</option>
-            <option v-for="descricao of categorias" :key="descricao.descricao">
-              {{ descricao.descricao }}
+            <option v-for="id of categorias" :key="id.id">
+              {{ id.descricao }}
             </option>
           </select>
           <input
@@ -101,8 +111,9 @@ export default {
             v-model="novo_editora_ID"
             placeholder="ID da editora"
           />
+          <!-- <label for="input_tit">autor</label> -->
           <input
-            id="input_tit"
+            id="input_aut"
             type="text"
             v-model="novo_autor_ID"
             placeholder="ID da autor"

@@ -5,35 +5,35 @@ export default {
     return {
       categorias: [
         {
-          id: "001",
+          id: "783d2265-3368-47c5-8d29-8e958295eff0",
           descricao: "Administração, Negócios e Economia",
         },
         {
-          id: "002",
+          id: "f1f48ff7-7a2f-439a-bf1d-f2252f6416f1",
           descricao: "Artesanato, Casa e Estilo de Vida",
         },
         {
-          id: "003",
+          id: "6b88323e-c2a7-45bb-8689-23cecdd4dc52",
           descricao: "Biografias e Histórias Reais",
         },
         {
-          id: "004",
+          id: "f9bac5f0-2513-4516-9b3e-9285faaa4f10",
           descricao: "Direito",
         },
         {
-          id: "005",
+          id: "0a9c9d5b-935c-44ea-a254-8b0963cb94d4",
           descricao: "Fantasia, Horror e Ficção Científica",
         },
         {
-          id: "006",
+          id: "a9d4326f-1c10-49a5-aeba-e7614650b875",
           descricao: "HQs, Mangás e Graphic Novels",
         },
         {
-          id: "007",
+          id: "79d1d7cf-fd03-47cb-b253-f3c792c38a40",
           descricao: "Romance",
         },
         {
-          id: "008",
+          id: "00be5b0b-5284-489d-b9e8-00084af4c18e",
           descricao: "Policial, Suspense e Mistério",
         },
       ],
