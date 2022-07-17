@@ -1,0 +1,49 @@
+{
+  "autores": [
+    {
+      "id": 1,
+      "nome": "Marco André Mendes Lopes"
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "descricao": "Administração, Negócios e Economia"
+    },
+    {
+      "id": 2,
+      "descricao": "Artesanato, Casa e Estilo de Vida"
+    },
+    {
+      "id": 3,
+      "descricao": "Biografias e Histórias Reais"
+    },
+    {
+      "id": 4,
+      "descricao": "Direito"
+    },
+    {
+      "id": 5,
+      "descricao": "Fantasia, Horror e Ficção Científica"
+    },
+    {
+      "id": 6,
+      "descricao": "HQs, Mangás e Graphic Novels"
+    },
+    {
+      "id": 7,
+      "descricao": "Romance"
+    },
+    {
+      "id": 8,
+      "descricao": "Policial, Suspense e Mistério"
+    }
+  ],
+  "editoras": [
+    {
+      "id": 1,
+      "nome": "Moderna",
+      "site": "https://www.moderna.com.br"
+    }
+  ]
+}
