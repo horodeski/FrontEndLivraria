@@ -1,28 +1,32 @@
 <script>
-import { v4 as uuidv4 } from "uuid";
+import EditorasApi from "@/api/editoras.js";
+const editorasApi = new EditorasApi();
 export default {
   data() {
     return {
+      editora: {},
       editoras: [],
-      nova_editora: "",
     };
   },
+  async created() {
+    this.editoras = await editorasApi.buscarTodasAsEditoras();
+  },
   methods: {
-    salvar() {
-      if ((this.nova_editora !== "", this.novo_site !== "")) {
-        const novo_id = uuidv4();
-        this.editoras.push({
-          id: novo_id,
-          nome: this.nova_editora,
-          site: this.novo_site,
-        });
-        this.nova_editora = "";
-        this.novo_site = "";
+    async salvar() {
+      if (this.editora.id) {
+        await editorasApi.atualizarEditora(this.editora);
+      } else {
+        await editorasApi.adicionarEditora(this.editora);
       }
+      this.editoras = await editorasApi.buscarTodasAsEditoras();
+      this.editora = {};
     },
-    excluir(editora) {
-      const indice = this.editoras.indexOf(editora);
-      this.editoras.splice(indice, 1);
+    async excluir(editora) {
+      await editorasApi.excluirEditora(editora.id);
+      this.editoras = await editorasApi.buscarTodasAsEditoras();
+    },
+    editar(editora) {
+      Object.assign(this.editora, editora);
     },
   },
 };
@@ -37,10 +41,15 @@ export default {
         <input
           id="edsi"
           type="text"
-          v-model="nova_editora"
+          v-model="editora.nome"
           placeholder="Editora..."
         />
-        <input id="edsi" type="url" v-model="novo_site" placeholder="Site..." />
+        <input
+          id="edsi"
+          type="url"
+          v-model="editora.site"
+          placeholder="Site..."
+        />
         <button @click="salvar">Salvar</button>
       </div>
       <div class="list-livros">
@@ -58,7 +67,7 @@ export default {
               <td>{{ editora.nome }}</td>
               <td>{{ editora.site }}</td>
               <td>
-                <button>editar</button>
+                <button @click="editar(editora)">editar</button>
                 <button @click="excluir(editora)">excluir</button>
               </td>
             </tr>

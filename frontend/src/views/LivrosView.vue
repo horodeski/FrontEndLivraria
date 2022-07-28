@@ -1,86 +1,50 @@
 <script>
-import { v4 as uuidv4 } from "uuid";
+import LivrosApi from "@/api/livros.js";
+import AutoresApi from "@/api/autores.js";
+import CategoriasApi from "@/api/categorias.js";
+import EditorasApi from "@/api/editoras.js";
+const livrosApi = new LivrosApi();
+const autoresApi = new AutoresApi();
+const categoriasApi = new CategoriasApi();
+const editorasApi = new EditorasApi();
 export default {
   data() {
     return {
-      categorias: [
-        {
-          id: "783d2265-3368-47c5-8d29-8e958295eff0",
-          descricao: "Administração, Negócios e Economia",
-        },
-        {
-          id: "f1f48ff7-7a2f-439a-bf1d-f2252f6416f1",
-          descricao: "Artesanato, Casa e Estilo de Vida",
-        },
-        {
-          id: "6b88323e-c2a7-45bb-8689-23cecdd4dc52",
-          descricao: "Biografias e Histórias Reais",
-        },
-        {
-          id: "f9bac5f0-2513-4516-9b3e-9285faaa4f10",
-          descricao: "Direito",
-        },
-        {
-          id: "0a9c9d5b-935c-44ea-a254-8b0963cb94d4",
-          descricao: "Fantasia, Horror e Ficção Científica",
-        },
-        {
-          id: "a9d4326f-1c10-49a5-aeba-e7614650b875",
-          descricao: "HQs, Mangás e Graphic Novels",
-        },
-        {
-          id: "79d1d7cf-fd03-47cb-b253-f3c792c38a40",
-          descricao: "Romance",
-        },
-        {
-          id: "00be5b0b-5284-489d-b9e8-00084af4c18e",
-          descricao: "Policial, Suspense e Mistério",
-        },
-      ],
+      livro: {},
       livros: [],
-      novo_livro: "",
-      novo_pre: 0,
-      novo_quant: 0,
-      novo_autor_ID: "",
-      nova_categoria: "",
-      novo_editora_ID: "",
+      categoria: {},
+      categorias: [],
+      editora: {},
+      editoras: [],
+      autor: {},
+      autores: [],
     };
   },
+  async created() {
+    this.livros = await livrosApi.buscarTodosOsLivros();
+    this.autores = await autoresApi.buscarTodosOsAutores();
+    this.categorias = await categoriasApi.buscarTodasAsCategorias();
+    this.editoras = await editorasApi.buscarTodasAsEditoras();
+  },
   methods: {
-    salvar() {
-      if (
-        this.novo_livro !== "" &&
-        this.novo_pre > 0 &&
-        this.novo_quant > 0 &&
-        this.novo_autor_ID !== "" &&
-        this.nova_categoria !== "" &&
-        this.novo_editora_ID !== ""
-      ) {
-        const novo_id = uuidv4();
-        const novo_ISBN = uuidv4();
-        this.livros.push({
-          id: novo_id,
-          nome: this.novo_livro,
-          quantidade: this.novo_quant,
-          preco: this.novo_pre,
-          ISBN: novo_ISBN,
-          Categoria: this.nova_categoria,
-          Editora_ID: this.novo_editora_ID,
-          Autor_ID: this.novo_autor_ID,
-        });
-        this.novo_livro = "";
-        this.novo_quant = "";
-        this.novo_pre = "";
-        this.novo_autor_ID = "";
-        this.nova_categoria = "";
-        this.novo_editora_ID = "";
+    async salvar() {
+      if (this.livro.id) {
+        await livrosApi.atualizarLivro(this.livro);
       } else {
-        alert("Todos os campos são obrigatórios");
+        await livrosApi.adicionarLivro(this.livro);
       }
+      this.livros = await livrosApi.buscarTodosOsLivros();
+      this.categorias = await categoriasApi.buscarTodasAsCategorias();
+      this.editoras = await editorasApi.buscarTodasAsEditoras();
+      this.autores = await autoresApi.buscarTodosOsAutores();
+      this.livro = {};
     },
-    excluir(livro) {
-      const indice = this.livros.indexOf(livro);
-      this.livros.splice(indice, 1);
+    async excluir(livro) {
+      await livrosApi.excluirLivro(livro.id);
+      this.livros = await livrosApi.buscarTodosOsLivros();
+    },
+    editar(livro) {
+      Object.assign(this.livro, livro);
     },
   },
 };
@@ -96,38 +60,49 @@ export default {
           <input
             id="input_tit"
             type="text"
-            v-model="novo_livro"
+            v-model="livro.nome"
             placeholder="Título"
           />
-          <select name="cat" id="categorias" v-model="nova_categoria">
+          <select id="categorias" v-model="livro.categoria">
             <option disabled value="">Escolha uma categoria</option>
-            <option v-for="id of categorias" :key="id.id">
-              {{ id.descricao }}
+            <option
+              v-for="categoria of categorias"
+              :key="categoria.id"
+              :value="categoria.descricao"
+            >
+              {{ categoria.descricao }}
+            </option>
+          </select>
+          <select id="autores" v-model="livro.autor">
+            <option disabled value="">Escolha um autor</option>
+            <option
+              v-for="autor of autores"
+              :key="autor.id"
+              :value="autor.nome"
+            >
+              {{ autor.nome }}
+            </option>
+          </select>
+          <select id="editoras" v-model="livro.editora">
+            <option disabled value="">Escolha uma editora</option>
+            <option
+              v-for="editora of editoras"
+              :key="editora.id"
+              :value="editora.nome"
+            >
+              {{ editora.nome }}
             </option>
           </select>
           <input
-            id="input_tit"
-            type="text"
-            v-model="novo_editora_ID"
-            placeholder="ID da editora"
-          />
-          <!-- <label for="input_tit">autor</label> -->
-          <input
-            id="input_aut"
-            type="text"
-            v-model="novo_autor_ID"
-            placeholder="ID da autor"
-          />
-          <input
             id="input_quant"
             type="number"
-            v-model="novo_quant"
+            v-model="livro.quantidade"
             placeholder="Quantidade"
           />
           <input
             id="input_pre"
             type="number"
-            v-model="novo_pre"
+            v-model="livro.preco"
             placeholder="Preço"
           />
           <div class="center">
@@ -141,27 +116,25 @@ export default {
             <tr>
               <th>ID</th>
               <th>Título</th>
-              <th>ISBN</th>
               <th>Categoria</th>
-              <th>Editora_ID</th>
-              <th>Autor_ID</th>
+              <th>Editora</th>
+              <th>Autor</th>
               <th>Quantidade</th>
               <th>Preço</th>
               <th>Ação</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="livro in livros" :key="livro">
+            <tr v-for="livro in livros" :key="livro.id">
               <td>{{ livro.id }}</td>
               <td>{{ livro.nome }}</td>
-              <td>{{ livro.ISBN }}</td>
-              <td>{{ livro.Categoria }}</td>
-              <td>{{ livro.Editora_ID }}</td>
-              <td>{{ livro.Autor_ID }}</td>
+              <td>{{ livro.categoria }}</td>
+              <td>{{ livro.editora }}</td>
+              <td>{{ livro.autor }}</td>
               <td>{{ livro.quantidade }}</td>
               <td>{{ livro.preco }}</td>
               <td>
-                <button>editar</button>
+                <button @click="editar(livro)">editar</button>
                 <button @click="excluir(livro)">excluir</button>
               </td>
             </tr>
