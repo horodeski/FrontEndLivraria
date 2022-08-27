@@ -45,12 +45,13 @@ export default {
         />
         <button @click="salvar">Salvar</button>
       </div>
-      <div class="list-livros">
+      <div class="list-livros" id="list-livros-view">
         <table v-if="categorias.length > 0">
           <thead>
             <tr>
-              <th>ID</th>
+              <th class="canto_ce">ID</th>
               <th>Categoria</th>
+              <th class="canto_cd">Ação</th>
             </tr>
           </thead>
           <tbody>

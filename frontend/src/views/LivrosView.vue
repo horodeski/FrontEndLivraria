@@ -55,94 +55,96 @@ export default {
       <div class="title">
         <h1>Gerenciamento de livros</h1>
       </div>
-      <div class="form-input">
-        <div class="center_input">
-          <input
-            id="input_tit"
-            type="text"
-            v-model="livro.nome"
-            placeholder="Título"
-          />
-          <select id="categorias" v-model="livro.categoria">
-            <option disabled value="">Escolha uma categoria</option>
-            <option
-              v-for="categoria of categorias"
-              :key="categoria.id"
-              :value="categoria.descricao"
-            >
-              {{ categoria.descricao }}
-            </option>
-          </select>
-          <select id="autores" v-model="livro.autor">
-            <option disabled value="">Escolha um autor</option>
-            <option
-              v-for="autor of autores"
-              :key="autor.id"
-              :value="autor.nome"
-            >
-              {{ autor.nome }}
-            </option>
-          </select>
-          <select id="editoras" v-model="livro.editora">
-            <option disabled value="">Escolha uma editora</option>
-            <option
-              v-for="editora of editoras"
-              :key="editora.id"
-              :value="editora.nome"
-            >
-              {{ editora.nome }}
-            </option>
-          </select>
-          <input
-            id="input_quant"
-            type="number"
-            v-model="livro.quantidade"
-            placeholder="Quantidade"
-          />
-          <input
-            id="input_pre"
-            type="number"
-            v-model="livro.preco"
-            placeholder="Preço"
-          />
-          <div class="center">
-            <button @click="salvar">Salvar</button>
+      <div class="tudo">
+        <div class="form-input">
+          <div class="center_input">
+            <input
+              id="input_tit"
+              type="text"
+              v-model="livro.nome"
+              placeholder="Título"
+            />
+            <select id="categorias" v-model="livro.categoria">
+              <option disabled value="">Escolha uma categoria</option>
+              <option
+                v-for="categoria of categorias"
+                :key="categoria.id"
+                :value="categoria.descricao"
+              >
+                {{ categoria.descricao }}
+              </option>
+            </select>
+            <select id="autores" v-model="livro.autor">
+              <option disabled value="">Escolha um autor</option>
+              <option
+                v-for="autor of autores"
+                :key="autor.id"
+                :value="autor.nome"
+              >
+                {{ autor.nome }}
+              </option>
+            </select>
+            <select id="editoras" v-model="livro.editora">
+              <option disabled value="">Escolha uma editora</option>
+              <option
+                v-for="editora of editoras"
+                :key="editora.id"
+                :value="editora.nome"
+              >
+                {{ editora.nome }}
+              </option>
+            </select>
+            <input
+              id="input_quant"
+              type="number"
+              v-model="livro.quantidade"
+              placeholder="Quantidade"
+            />
+            <input
+              id="input_pre"
+              type="number"
+              v-model="livro.preco"
+              placeholder="Preço"
+            />
+            <div class="center">
+              <button @click="salvar">Salvar</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="list-livros">
-        <table v-if="livros.length > 0">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Título</th>
-              <th>Categoria</th>
-              <th>Editora</th>
-              <th>Autor</th>
-              <th>Quantidade</th>
-              <th>Preço</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="livro in livros" :key="livro.id">
-              <td>{{ livro.id }}</td>
-              <td>{{ livro.nome }}</td>
-              <td>{{ livro.categoria }}</td>
-              <td>{{ livro.editora }}</td>
-              <td>{{ livro.autor }}</td>
-              <td>{{ livro.quantidade }}</td>
-              <td>{{ livro.preco }}</td>
-              <td>
-                <button @click="editar(livro)">editar</button>
-                <button @click="excluir(livro)">excluir</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="senao" v-else>
-          <span class="aviso">Não existem livros cadastrados</span>
-          <i class="bx bx-error"></i>
+        <div class="list-livros" id="llv">
+          <table v-if="livros.length > 0">
+            <thead>
+              <tr>
+                <th class="canto_ce">ID</th>
+                <th>Título</th>
+                <th>Categoria</th>
+                <th>Editora</th>
+                <th>Autor</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th class="canto_cd">Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="livro in livros" :key="livro.id">
+                <td>{{ livro.id }}</td>
+                <td>{{ livro.nome }}</td>
+                <td>{{ livro.categoria }}</td>
+                <td>{{ livro.editora }}</td>
+                <td>{{ livro.autor }}</td>
+                <td>{{ livro.quantidade }}</td>
+                <td>{{ livro.preco }}</td>
+                <td>
+                  <button @click="editar(livro)">editar</button>
+                  <button @click="excluir(livro)">excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="senao" v-else>
+            <span class="aviso">Não existem livros cadastrados</span>
+            <i class="bx bx-error"></i>
+          </div>
         </div>
       </div>
     </div>

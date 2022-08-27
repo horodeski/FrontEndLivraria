@@ -11,6 +11,14 @@
     {
       "nome": "Clodoaldo José Figueredo",
       "id": 3
+    },
+    {
+      "nome": "Marco Antônio",
+      "id": 4
+    },
+    {
+      "nome": "Gracieli Ramalho da Silva",
+      "id": 5
     }
   ],
   "categorias": [
@@ -81,6 +89,24 @@
       "quantidade": 14,
       "preco": 56,
       "id": 3
+    },
+    {
+      "nome": "Florianópolis: a capital em uma ilha",
+      "categoria": "Artesanato, Casa e Estilo de Vida",
+      "autor": "Marco Antônio",
+      "editora": "EduDaSilva",
+      "quantidade": 27,
+      "preco": 48,
+      "id": 4
+    },
+    {
+      "autor": "Gracieli Ramalho da Silva",
+      "editora": "Moderna",
+      "categoria": "Biografias e Histórias Reais",
+      "nome": "Meu pingo",
+      "quantidade": 154,
+      "preco": 10.99,
+      "id": 5
     }
   ]
 }

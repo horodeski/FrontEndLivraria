@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  margin: 0 25px;
 }
 *{
   margin: 0;
@@ -10,14 +11,17 @@ body {
   box-sizing: border-box;
   font-family: 'Mukta', sans-serif;
 }
-nav{
+header{
   margin-right: 20px;
   position: fixed;
   top: 0;
+  margin-left: 25px;
   bottom: 0;
-  height: 100%;
+  border-radius: 25px;
+  margin-top: 25px;
+  height: 90%;
   left: 0;
-  background: #fff;
+  background: #729aff;
   width: 90px;
   overflow: hidden;
   transition: width 0.2s linear;
@@ -28,6 +32,62 @@ select{
   height: 40px;
   width: 100%;
   margin: 0px 0px 15px 0px;
+}
+#usuarios h2 {
+  color: #729aff;
+}
+#span-valores {
+  margin: 0;
+  top: 0;
+  font-size: 50px;
+  display: flex;
+  margin-bottom: -20px;
+  align-items: center;
+}
+.infos{
+  color: white;
+  background-image: linear-gradient(to bottom right, #729aff, #5070ca);
+}
+.infos, .estoque-parcerias{
+  display: flex;
+  padding: 11px;
+  align-items: center;
+  height: 163px;
+  border-radius: 15px;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.1);
+}
+.estoque-parcerias {
+  background-color: #f7f7f7;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-top: 15px;
+}
+.valores {
+  font-size: 19px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.header-usuarios{
+  display: flex;
+  justify-content: space-between;
+}
+.header-usuarios button{
+  background-image: linear-gradient(to bottom right, #729aff, #5070ca);
+  font-weight: bold;
+  font-size: 17px;
+  color: white;
+  padding: 0px 25px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+#infos_saldo {
+  margin-left: 17px;
 }
 .senao{
   margin-top: 35px;
@@ -42,26 +102,49 @@ select{
   margin-top: 20px;
   font-weight: bold;
 }
-.livro {
-  display: inline;
-  width: 210px;
-  height: 163px;
-  border: 1px solid #40AB85;
-  padding: 15px;
-  margin: 12px;
-}
 strong{
-  text-decoration: underline solid #40AB85;
+  text-decoration: underline solid #729aff;
 }
-.compras, .estoque{
-  border: 1px solid #40AB85;
-  width: 50%;
-  height: 50vh;
-  margin: 15px;
-  padding: 15px
+h4 {
+  margin-top: -10px;
+  color: #202020;
+}
+.tudo{
+  display: flex;
+  float: right;
+  width: 90%;
+  margin-top: 10px;
+}
+.flex {
+  display: flex;
+  width: 100%;
+}
+.icon i{
+  font-size: 50px;
+  margin-top: -10px;
+}
+.logos-lace {
+  margin-top: 15px;
+}
+#usuarios {
+  background-color: #f7f7f7;
+  margin-top: 21px;
+  padding: 25px;
+  border-radius: 15px;
+}
+.ult-usuario{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+.estoque-parcerias:hover {
+  background-color: #e7e7e7e3;
+  transition: 0.2s linear;
+  cursor: pointer;
 }
 .pgnadm {
-  font-size: 50px;
+  font-size: 3em;
   font-weight: bold;
 }
 .pgadmin{
@@ -75,9 +158,21 @@ main{
   justify-content: center;
 }
 .iniciopg{
-  margin-top: 25px;
   display: flex;
-  justify-content: center;
+  margin-right: 15px;
+  margin-left: 117px;
+  flex-direction: column;
+}
+#list-livros-view{
+  padding: 0px 100px;
+  margin-top: 0;
+}
+.form-input {
+  padding: 20px;
+  border-radius: 15px;
+  margin-right: 15px;
+  width: 50%;
+  box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.1);
 }
 .bx-user-pin{
   font-size: 50px;
@@ -94,7 +189,7 @@ main{
   display: flex;
   transition: all 0.5s ease;
   margin: 10px 0 0 10px;
-  color: #40AB85;
+  color: #ffffff;
 }
 .link_logo i {
   width: 45px;
@@ -107,7 +202,7 @@ main{
   text-transform: uppercase;
 }
 li{
-  color: rgb(85, 83, 83);
+  color: rgb(255, 255, 255);
   font-size: 20px;
   display: table;
   width: 300px;
@@ -131,22 +226,32 @@ i{
 #logo{
   font-size: 35px;
 }
+.info-user{
+  width: -webkit-fill-available;
+  font-size: 100%
+}
 span{
   position: relative;
-  top: 12px;
+  top: 10px;
   margin-left: 10px;
 }
-li:hover{
-  background: #eee;
-  color: #40AB85;
+.header-pgnadm {
+  margin-top: 25px;
+  display: flex;
+  width: 100%;
 }
-nav:hover{
+.logos-nav:hover{
+  background: rgb(255, 255, 255);
+  color: #000000;
+}
+header:hover{
   width: 280px;
   transition: all 0.5s ease;
 }
 .admin{
   position: absolute;
   bottom: 0;
+  margin-bottom: 20px;
 }
 
 .info_nome {
@@ -162,7 +267,7 @@ nav:hover{
   text-decoration: line-through;
 }
 .title {
-  color: #40AB85;
+  color: #000000;
   display: flex;
   justify-content: center;
   margin-top: 30px;
@@ -189,23 +294,16 @@ nav:hover{
   height: 40px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 10px;
-  background-color:#40AB85;
+  background-color:#729aff;
   color: rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;
 }
 .form button:hover {
   background-color: #ffffff;
-  border: 3px solid #40AB85;
-  color: #40AB85;
+  border: 3px solid #729aff;
+  color: #729aff;
   transition: all 0.5s ease;
-}
-.form-input {
-  margin-top: 10px;
-  border: 4px solid #40AB85;
-  padding: 50px;
-  margin: 0 auto;
-  width: 50%;
 }
 .form-input input {
   width: 100%;
@@ -219,9 +317,8 @@ nav:hover{
   display: flex;
   justify-content: center;
 }
-#input_quant, #input_pre{
-  width: 49%;
-  margin-left: 4px;
+#llv {
+  margin-top: 0;
 }
 .form-input button {
   margin-left: 1px;
@@ -229,16 +326,21 @@ nav:hover{
   height: 40px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 10px;
-  background-color:#40AB85;
+  background-color:#729aff;
   color: rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;
 }
 .form-input button:hover {
   background-color: #ffffff;
-  border: 3px solid #40AB85;
-  color: #40AB85;
+  border: 3px solid #729aff;
+  color: #729aff;
   transition: all 0.5s ease;
+}
+.icons {
+  height: 50px;
+  margin-right: 10px;
+  width: 50px;
 }
 .list-livros {
   display: flex;
@@ -246,30 +348,40 @@ nav:hover{
   margin-top: 25px;
 }
 .list-livros table {
-  width: 80%;
   margin: 0 auto;
+  width: 100%;
   border-collapse: collapse;
+  box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.1);
 }
+.canto_ce{
+  border-radius: 15px 0 0 0;
+}
+.canto_cd{
+  border-radius: 0 15px 0 0;
+}
+
 table tr td {
-  border: 2px solid #40AB85;
+  background-color: #f7f7f7;
   padding: 10px;
   text-align: center;
 }
 th {
+  background-color: #729aff;
+  color: white;
   font-weight: bold;
   padding: 10px;
 }
 td button{
   margin-left: 5px;
-  background-color: #40AB85;
+  background-color: #729aff;
   color: white;
   padding: 5px;
+  border-radius: 15px;
   width: 50px;
-  border-radius: 5px;
 }
 td button:hover{
   cursor: pointer;
   background-color: #ffffff;
-  border: 2px solid #40AB85;
-  color: #40AB85;
+  border: 2px solid #729aff;
+  color: #729aff;
 }
