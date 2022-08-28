@@ -223,6 +223,13 @@ i{
   font-size: 28px;
   text-align: center;
 }
+#bemvindo{
+  margin-top: 0;
+  align-items: flex-start;
+  background-color: white;
+  border: 3px solid #729aff;
+  box-shadow: none;
+}
 #logo{
   font-size: 35px;
 }
@@ -339,6 +346,7 @@ header:hover{
 }
 .icons {
   height: 50px;
+  border-radius: 50%;
   margin-right: 10px;
   width: 50px;
 }

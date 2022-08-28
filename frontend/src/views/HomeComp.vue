@@ -61,7 +61,10 @@ export default {
   <div class="header-pgnadm">
     <div class="iniciopg">
       <h1 class="pgnadm">Página de <strong>administração</strong></h1>
-      <EstoqueParceria conteudo="Olá, seja bem-vindo a administração!" />
+      <EstoqueParceria
+        id="bemvindo"
+        conteudo="Olá, seja bem-vindo a administração!"
+      />
       <div>
         <TabelaLivro />
       </div>
