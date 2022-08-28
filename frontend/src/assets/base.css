@@ -219,7 +219,7 @@ i{
   position: relative;
   width: 70px;
   height: 40px;
-  top: 14px;
+  top: 5px;
   font-size: 28px;
   text-align: center;
 }
@@ -231,7 +231,6 @@ i{
   font-size: 100%
 }
 span{
-  position: relative;
   top: 10px;
   margin-left: 10px;
 }
@@ -318,6 +317,7 @@ header:hover{
   justify-content: center;
 }
 #llv {
+  width: 100%;
   margin-top: 0;
 }
 .form-input button {
