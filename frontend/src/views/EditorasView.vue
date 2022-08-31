@@ -53,7 +53,7 @@ export default {
         <button @click="salvar">Salvar</button>
       </div>
       <div class="list-livros" id="list-livros-view">
-        <table v-if="editoras.length > 0">
+        <table id="margin" v-if="editoras.length > 0">
           <thead>
             <tr>
               <th class="canto_ce">ID</th>

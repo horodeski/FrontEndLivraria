@@ -27,6 +27,9 @@ header{
   transition: width 0.2s linear;
   box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.1);
 }
+.margin {
+  margin-top: 25px;
+}
 select{
   border: 2px solid #939393;
   height: 40px;
@@ -165,7 +168,7 @@ main{
 }
 #list-livros-view{
   padding: 0px 100px;
-  margin-top: 0;
+  margin-top: 25px;
 }
 .form-input {
   padding: 20px;

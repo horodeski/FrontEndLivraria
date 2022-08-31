@@ -26,20 +26,6 @@ export default {
     this.categorias = await categoriasApi.buscarTodasAsCategorias();
     this.editoras = await editorasApi.buscarTodasAsEditoras();
   },
-  methods: {
-    async salvar() {
-      if (this.livro.id) {
-        await livrosApi.atualizarLivro(this.livro);
-      } else {
-        await livrosApi.adicionarLivro(this.livro);
-      }
-      this.livros = await livrosApi.buscarTodosOsLivros();
-      this.categorias = await categoriasApi.buscarTodasAsCategorias();
-      this.editoras = await editorasApi.buscarTodasAsEditoras();
-      this.autores = await autoresApi.buscarTodosOsAutores();
-      this.livro = {};
-    },
-  },
 };
 </script>
 <template>
